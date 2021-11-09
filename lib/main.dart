@@ -1,4 +1,7 @@
+import 'package:clock_app/Models/menu_info.dart';
+import 'package:clock_app/enums.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'Screens/screens.dart';
 
@@ -17,7 +20,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: ChangeNotifierProvider<MenuInfo>(
+        create: (context) => MenuInfo(menuType: MenuType.clock, title: 'Clock'),
+        child: const HomePage(),
+      ),
     );
   }
 }
